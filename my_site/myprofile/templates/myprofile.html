@@ -1,0 +1,34 @@
+
+{% load static %}
+<html>
+<head>
+    <title>
+        {% block title %}
+        Reskill Student Profile
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <!-- <img src="{% static 'images/sitelogo.png' %}" alt="Logo"> -->
+
+    {% block content %}
+    
+    <p>Student : {{ Name }}</p>
+    <p>Track   : {{ Track }}</p>
+    <p>IDE   : {{ IDEtype }}</p>
+    <p>Username   : {{ GitHub }}</p>
+    <p>Message : {{ Message }}</p>
+    
+    {% endblock %}
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
