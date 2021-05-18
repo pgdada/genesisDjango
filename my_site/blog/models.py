@@ -1,14 +1,9 @@
 from django.db import models
-
-# Create your models here.
-
 from datetime import datetime
 
 class School(models.Model):
     # name
     name = models.CharField(max_length=300)
-    # address = models.CharField(max_length=400)
-    # zip_code = models.IntegerField()
     def __str__(self) -> str:
         return self.name
 
@@ -40,7 +35,7 @@ class Department(models.Model):
 class Student(models.Model):
     # fullname, grad_year, department, grade, school, certificate_type
     fullname = models.CharField(max_length=100)
-    # grad_year = models.IntegerField(default=datetime.today().year)
+    grad_year = models.PositiveSmallIntegerField(default=datetime.now().year + 4)
     department = models.ForeignKey(Department, on_delete=models.PROTECT)
     grade = models.ForeignKey(Grade, on_delete=models.PROTECT)
     school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -49,12 +44,3 @@ class Student(models.Model):
     def __str__(self) -> str:
         return self.fullname
  
-
-    # pass
-    # school = models.ForeignKey(School, on_delete=models.CASCADE)
-    # first_name = models.CharField(max_length=50)
-    # last_name = models.CharField(max_length=50)
-    # age = models.IntegerField()
-    # department = models.CharField(max_length = 50)
-    # date_of_resumption = models.DateField(default=datetime.today)
-
